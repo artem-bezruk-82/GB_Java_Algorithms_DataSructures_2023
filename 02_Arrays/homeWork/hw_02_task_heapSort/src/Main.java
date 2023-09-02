@@ -35,26 +35,24 @@ public class Main
         }
     }
 
-    static void heapify(int[]array, int length, int elementIndex)
+    static void heapify(int[]array, int length, int rootIndex)
     {
-        int leftChildIndex = 2 * elementIndex + 1;
-        int rightChildIndex = 2 * elementIndex + 2;
-        int parentIndex = elementIndex;
+        int leftChildIndex = 2 * rootIndex + 1;
+        int rightChildIndex = 2 * rootIndex + 2;s
+        int largestIndex = rootIndex;
 
-        if (leftChildIndex < length && array[leftChildIndex] > array[parentIndex])
-            parentIndex = leftChildIndex;
+        if (leftChildIndex < length && array[leftChildIndex] > array[largestIndex])
+            largestIndex = leftChildIndex;
 
-        if (rightChildIndex < length && array[rightChildIndex] > array[parentIndex])
-            parentIndex = rightChildIndex;
+        if (rightChildIndex < length && array[rightChildIndex] > array[largestIndex])
+            largestIndex = rightChildIndex;
 
-        if (parentIndex != elementIndex)
+        if (largestIndex != rootIndex)
         {
-            int temp = array[elementIndex];
-            array[elementIndex] = array[parentIndex];
-            array[parentIndex] = temp;
-            heapify(array, length, parentIndex);
+            int temp = array[rootIndex];
+            array[rootIndex] = array[largestIndex];
+            array[largestIndex] = temp;
+            heapify(array, length, largestIndex);
         }
     }
-
-
 }
