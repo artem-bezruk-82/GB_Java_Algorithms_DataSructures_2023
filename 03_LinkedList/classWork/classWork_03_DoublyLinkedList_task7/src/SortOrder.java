@@ -1,0 +1,5 @@
+enum SortOrderEnum
+{
+    ascending,
+    descending
+}
